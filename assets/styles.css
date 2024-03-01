@@ -101,6 +101,10 @@
     text-align: center;
 }
 
+.justify-content-normal {
+    justify-content: normal !important;
+}
+
 header {
     /* background: linear-gradient(90deg, #e7f1ff 30%, #fffdf5 100%); */
     /* background: linear-gradient(90deg, #e7f1ff 30%, #f9f2ff 100%); */
@@ -108,13 +112,19 @@ header {
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
 }
 
-.developer-networks a {
+.developer-networks {
     text-decoration: none;
+    margin-right: 42px;
 }
 
 .network-item {
     width: 30px;
     border-radius: 50%;
+}
+
+.a-image-profile {
+    position: absolute;
+    right: 0.75rem;
 }
 
 .image-profile {
@@ -137,7 +147,6 @@ header {
     background: linear-gradient(90deg, #e7f1ff5a 30%, #fff5e759 100%);
 }
 
-/* *******************************  ********************************* */
 .input-switch {
     display: none;
 }
@@ -198,4 +207,11 @@ header {
 
 .input-switch:checked~.info-text::before {
     content: "Cierre automático de las pestañas activo";
+}
+
+@media (max-width: 410px) {
+    .a-image-profile {
+        top: 0.6rem;
+        right: 0.65rem;
+    }
 }
