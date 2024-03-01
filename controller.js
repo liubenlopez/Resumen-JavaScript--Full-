@@ -304,13 +304,14 @@ document.addEventListener("DOMContentLoaded", () => {
 			let resultados = "Resultados de los métodos:\n";
 			resultados += gato.metodoComer();
 			resultados += " - " + gato.metodoDormir();
-			resultados += " - " + gato.metodoJugar();
+			// resultados += " - " + gato.metodoJugar(); Los valores que halla dentro del metodo que sean obtenidos con this no van a funcionar porque el metodo es una funcion flecha (Da un error)
 			resultados += " - " + gato.listarEnemigos();
 			alert(resultados);
 		}
 		if (e.target.id === "buttomIterarAtributos") {
 			let atributos = "";
-			for (item in gato) { //(for in) es para iterar objetos (for of) para iterar listas
+			for (let item in gato) { //(for in) es para iterar objetos (for of) para iterar listas
+				console.log(item)
 				atributos += "\n" + `${item}: ${gato[item]}`;
 			}
 			console.log(atributos)
@@ -359,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			//Si existe una var con el nombre de uno de los atributos se puede usar un alias (nombre: nombreAlias)
 			const { nombre: nombreAlias, duerme, enemigos, otra = "Por defecto", metodoComer } = gato;
 			console.log("Destructuring Obj.:\n", nombreAlias, duerme, enemigos, otra, typeof metodoComer);
-			console.log("metodoComer: ", metodoComer()); //Los valores que halla dentro del metodo que sean obtenidos con this no van a funcionar porque el metodo esta extraido del Objeto
+			// console.log("metodoComer: ", metodoComer()); Los valores que halla dentro del metodo que sean obtenidos con this no van a funcionar porque el metodo esta extraido del Objeto (Da un error)
 			mostrarObjetoGatoDestructuring([nombreAlias, duerme, enemigos, otra, metodoComer]);
 		}
 		if (e.target.id === "buttomDestructuringArray") {
