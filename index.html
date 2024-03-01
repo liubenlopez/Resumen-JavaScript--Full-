@@ -1,0 +1,1750 @@
+<html>
+
+<head>
+	<title>Resumen de JavaScript</title>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/x-icon" href="assets/images/javascript.png">
+	<link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+	<link href="assets/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+	<header class="navbar navbar-light mb-3">
+		<div class="container-fluid">
+			<a class="navbar-brand">
+				<img src="assets/images/javascript.png" alt="" width="30" height="26"
+					class="d-inline-block align-text-top">
+				<span class="ml5"><strong>Resumen de JavaScript</strong></span>
+				<div class="developer-networks">
+					<a href="https://www.linkedin.com/in/liuben-lopez-aparicio" target="_blank">
+						<img src="assets/images/linkedin.jpg" class="network-item">
+					</a>
+					<a href="https://github.com/liubenlopez" target="_blank" class="ml2">
+						<img src="assets/images/github.jpg" class="network-item">
+					</a>
+					<a href="https://liubenlopez.github.io" target="_blank" class="ml2">
+						<img src="assets/images/liuben-lopez-aparicio.jpg" class="image-profile">
+					</a>
+				</div>
+			</a>
+		</div>
+	</header>
+
+	<div class="container-fluid">
+
+		<div class="accordion mb15" id="accordion">
+
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="header1">
+					<button type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true"
+						class="accordion-button" aria-controls="collapse1">
+						<i class="fa fa-hand-pointer font-weight-100 mr10"></i> Eventos
+					</button>
+				</h2>
+				<div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="header1"
+					data-bs-parent="#accordion">
+					<div class="accordion-body">
+
+						<div class="card mb20 mt10">
+							<div class="card-body">
+								<h5 class="card-title">DOMContentLoaded</h5>
+								<div class="card-text">
+									<div>
+										Si no se sabe el orden en que se cargan los script con relacion al render del
+										DOM
+										se puede usar el evento DOMContentLoaded que garantiza que el DOM esté cargado
+										por
+										completo.
+										El evento DOMContentLoaded se activa cuando se carga la página DOM y se cargan y
+										ejecutan todos los scripts diferidos.
+									</div>
+									<div>
+										Para que un script se cargue diferido hay que agregarle el atributo defer al
+										script: &lt;script src="controller.js" defer&gt;&lt;/script&gt;
+									</div>
+									<div class="resaltar">
+										document.addEventListener("DOMContentLoaded", () => {
+										console.log("Evento DOMContentLoaded ejecutado");
+										});
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="card mb20">
+							<div class="card-body">
+								<h5 class="card-title">Propagación de Eventos</h5>
+								<div class="card-text mb15">
+									Cuando se ejecuta un evento en un componente hijo para que el evento no se
+									propague hacia el padre se utiliza la función stopPropagation(). Si se da click en
+									uno los div marcados en rojo en dependencia de si esta activa o no la propagación
+									del error en esos elementos se mostrará un alert como si se hubiese clickeado sobre
+									ellos aunque el click halla sido solo en el hijo.
+								</div>
+								<div class="card">
+									<div class="card-body">
+										<div class="card-title mb15">
+											<button class="btn btn-primary btn-sm"
+												id="btnActivarDesactivarPropagacionDeEventos">
+												Activar propagación de eventos
+											</button>
+										</div>
+										<div class="divParaPropagacionDeEventos" onclick="alert('div 1 clicked')">
+											<p>div 1 para probar propagacion de eventos</p>
+											<div class="divParaPropagacionDeEventos" onclick="alert('div 2 clicked')">
+												<p>div 2 para probar propagacion de eventos</p>
+												<div class="divParaPropagacionDeEventos"
+													onclick="alert('div 3 clicked')">
+													<p>div 3 para probar propagacion de eventos</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card mb20">
+							<div class="card-body">
+								<h5 class="card-title">Cancelación del Evento</h5>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="card-text mb15">
+											Para cancela el evento si este es cancelable, sin detener el resto del
+											funcionamiento del evento, se utiliza el método preventDefault(). Si no esta
+											activo
+											el preventDefault la página se va a recargar al ejecutar el evento submit en
+											el
+											formulario y el ancla. Si esta activo no se va a recargar la página.
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="card">
+											<div class="card-body">
+												<div class="card-title mb15">
+													<button class="btn btn-primary btn-sm"
+														id="btnActivarDesactivarCancelacionDeEventos">
+														Activar cancelación de eventos
+													</button>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<form id="formularioEventoTest" style="margin-bottom: 0;">
+															<div class="row">
+																<div class="col-md-8">
+																	<input class="form-control btn-sm" type="text"
+																		name="nombre">
+																</div>
+																<div class="col-md-4">
+																	<button class="btn btn-primary btn-sm"
+																		style="margin-left: -10px;"
+																		type="submit">Enviar</button>
+																</div>
+															</div>
+														</form>
+													</div>
+													<div class="col-md-6">
+														<a href="#" id="anclaEventoTest">Link para recargar la
+															página</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card mb10">
+							<div class="card-body">
+								<h5 class="card-title">Delegación de Eventos</h5>
+								<div class="card-text mb15">
+									En lugar de agregar un detector de eventos a todos y cada uno
+									de los elementos similares o que están en una estructura gerárquica, podemos agregar
+									un detector de eventos a un elemento principal y llamar a un evento en un objetivo
+									en particular utilizando la propiedad (target) del objeto de evento. Aquí no hay
+									propagacion de eventos.
+								</div>
+								<div class="card">
+									<div class="card-body">
+										<div id="padre" class="containerDelegaciónDeEventos" data-div="divPadre">
+											Padre
+											<div id="hijo" class="containerDelegaciónDeEventos mt15" data-div="divHijo">
+												Hijo
+												<div id="nieto" class="containerDelegaciónDeEventos mt15 nieto"
+													data-div="divNieto">
+													Nieto
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="header2">
+					<button type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false"
+						class="accordion-button collapsed" aria-controls="collapse2">
+						<i class="fa fa-list mr10"></i> Listas
+					</button>
+				</h2>
+				<div id="collapse2" class="accordion-collapse collapse" aria-labelledby="header2"
+					data-bs-parent="#accordion">
+					<div class="accordion-body" style="padding-bottom: 5px;">
+
+						<div class="row mt10">
+							<div class="col-md-12">
+								<div class="card mb20">
+									<div class="card-body">
+										<h5 class="card-title">
+											Operaciones básicas sobre listas (Realizan cambios en la lista)
+										</h5>
+										<div id="divFastFoodList" class="card-text"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Push</h5>
+										<div class="card-text mb10">
+											Agrega elemento al final de la lista, estos elementos pueden ser repetidos.
+										</div>
+										<button class="btn btn-primary btn-sm" id="buttomFastFoodListPush">
+											Push elemento 🍕
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Unshift</h5>
+										<div class="card-text mb10">
+											Agrega elemento al inicio de la lista, estos elementos pueden ser repetidos.
+										</div>
+										<button class="btn btn-primary btn-sm" id="buttomFastFoodListUnshift">
+											Unshift elemento 🍔
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Pop</h5>
+										<div class="card-text mb10">
+											Elimina el último elemento de la lista.
+										</div>
+										<button class="btn btn-primary btn-sm" id="buttomFastFoodListPop">
+											Pop elemento
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Shift</h5>
+										<div class="card-text mb10">
+											Elimina el primer elemento de la lista.
+										</div>
+										<button class="btn btn-primary btn-sm" id="buttomFastFoodListShift">
+											Shift elemento
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card mb20">
+									<div class="card-body">
+										<h5 class="card-title">
+											Operaciones que no realizan cambios en la lista (Devuelven una nueva)
+										</h5>
+										<div>
+											Original: <span id="divUserList" class="card-text"></span>
+										</div>
+										<div>
+											Modificada: <span id="divUserListModificada" class="card-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Map</h5>
+										<div class="card-text mb10">
+											El método map crea un nuevo array con los resultados de la llamada a la
+											función indicada aplicados a cada uno de sus elementos.
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListMap">
+											Map by name attribute
+										</button>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListMap2">
+											Duplicar edad
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Filter</h5>
+										<div class="card-text mb10">
+											El método filter crea un nuevo array con todos los elementos que cumplan la
+											condición implementada por la función dada.
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListFilter">
+											Filter by mayores de 30
+										</button>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListFilter2">
+											Todos menos John
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Find</h5>
+										<div class="card-text mb10">
+											El método find devuelve el valor del primer elemento del array que cumple la
+											condicion, si no encuentra devuelve undefined.
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListFind">
+											Find Amy
+										</button>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListFind2">
+											Find Paul
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Some</h5>
+										<div class="card-text mb10">
+											El método some comprueba si al menos un elemento del array cumple con la
+											condición y devuelve true ó false.
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListSome">
+											Some Amy
+										</button>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListSome2">
+											Some Paul
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">FindIndex</h5>
+										<div class="card-text mb10">
+											El método findIndex devuelve el índice del primer elemento de un array que
+											cumpla con la función de prueba proporcionada. En caso contrario devuelve
+											-1.
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListFindIndex">
+											FindIndex Amy
+										</button>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListFindIndex2">
+											FindIndex Paul
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Slice</h5>
+										<div class="card-text mb10">
+											El método slice devuelve una copia de una parte del array dentro de un nuevo
+											array empezando por inicio hasta fin (fin no incluido).
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListSlice">
+											Slice (1, 3)
+										</button>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListSlice2">
+											Slice (2, 7)
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Concat</h5>
+										<div class="card-text mb10">
+											El método concat se usa para unir dos o más arrays. Este método no cambia
+											los arrays existentes, sino que devuelve un nuevo array.
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListConcat">
+											Concat con ["a", "b", "c", "d"]
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Spread Syntax</h5>
+										<div class="card-text mb10">
+											La Spread Syntax permite a un elemento iterable tal como un arreglo o cadena
+											ser expandido en lugares donde habria que recorrerlos para acceder a sus
+											elementos.
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListSpread">
+											Spread array1 y original
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Reduce</h5>
+										<div class="card-text mb10">
+											El método reduce ejecuta una función reductora sobre cada elemento de un
+											array, devolviendo como resultado un único valor.
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListReduce">
+											Sumar el [1, 2, 3, 4, 5]
+										</button>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListReduce2">
+											Contar por nombre
+										</button>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListReduce3">
+											Contar por nombre 2
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Flat</h5>
+										<div class="card-text mb10">
+											El método flat crea una nueva matriz con todos los elementos de sub-array
+											concatenados recursivamente hasta la profundidad especificada.
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListFlat">
+											Flat [1, 2, [3, 4, [5, 6, [7, 8]]]]
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Split</h5>
+										<div class="card-text mb10">
+											El método split divide un objeto de tipo String en un array mediante un
+											separador dado. ("Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec")
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListSplit">
+											Split
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Join</h5>
+										<div class="card-text mb10">
+											El método join une todos los elementos de una matriz en una cadena con un
+											separador dado (si no se le asigna el separador pone comas). ["Jan", "Feb",
+											"Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListJoin">
+											Join
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Objeto Set</h5>
+										<div class="card-text mb10">
+											El objeto Set es una colecciones de valores similar a un arreglo que permite
+											almacenar valores únicos de cualquier tipo, ya sea valores primitivos o
+											referencias a objetos. Un valor en un Set solo puede ocurrir una vez, es
+											único en la colección del Set. ["🍕", "🍕", "🍕", "🍔", "🍟"]
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListSet">
+											Crear Set Object
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card mb20 card-height">
+									<div class="card-body">
+										<h5 class="card-title">Objeto Map</h5>
+										<div class="card-text mb10">
+											El objeto Map contiene pares clave-valor y recuerda el orden de inserción
+											original de las claves. Cualquier valor (tanto objetos como valores
+											primitivos) se puede utilizar como clave o valor.
+										</div>
+										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListMapObj">
+											Crear Map Object
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="header3">
+					<button type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false"
+						class="accordion-button collapsed" aria-controls="collapse3">
+						<i class="fa fa-cube mr10"></i> Objetos
+					</button>
+				</h2>
+				<div id="collapse3" class="accordion-collapse collapse" aria-labelledby="header3"
+					data-bs-parent="#accordion">
+					<div class="accordion-body">
+
+						<div class="card mb20 mt10">
+							<div class="card-body">
+								<h5 class="card-title">Pase de Dato</h5>
+								<div class="card-text">
+									<div>
+										Se denomina pase de datos a la asignación de valores a una varible. Esta
+										asignación de datos se puede realizar de dos formas: por valor o referencia.
+										El pase de datos por valor es cuando se le asigna a la variable un valor que no
+										guarda relación con la variable que se lo asignó por lo que al modificar el
+										valor de esta la que se lo asignó no sufre cabios (Si es un tipo de dato
+										primitivo es por valor). Por otro lado en el pase de datos por referencia la
+										variable guarda un vinculo (puntero o referencia) con la variable que le asignó
+										el valor y si se modifica esta también se modificará la otra (Si es un dato no
+										primitivo como funciones, objetos u arrays es por referencia).
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="card mt15">
+												<div class="card-body">
+													<h6>Pase de datos por valor</h6>
+													<div>let a = "Valor inicial";</div>
+													<div>let b = a;</div>
+													<div>a = "Valor cambiado";</div>
+													<div>//En este punto b sigue con: "Valor inicial".</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="card mt15">
+												<div class="card-body">
+													<h6>Pase de datos por referencia</h6>
+													<div>const a = ["Valor inicial"];</div>
+													<div>const b = arrayA;</div>
+													<div>a.push("Otro valor");</div>
+													<div>//En este punto b contiene: ['Valor inicial', 'Otro valor']
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="card mb20">
+							<div class="card-body" style="padding-bottom: 0;">
+								<h5 class="card-title">Objetos Literales</h5>
+								<div class="card-text">
+									<div>
+										Se denomina objeto literal al objeto cuyas propiedades están declaradas
+										textualmente en el código. Podemos decir la variable nombre tiene asignada un
+										string literal ya que se asigna el valor "Tom" textualmente.
+									</div>
+									<div class="card mt15 mb20">
+										<div class="card-body">
+											<div id="divObjetoGato"></div>
+										</div>
+									</div>
+
+									<div id="operacionesSobreObjetoGato">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="card mb20 card-height">
+													<div class="card-body">
+														<h5 class="card-title">Verificar Atributo</h5>
+														<div class="card-text mb10">
+															Si el atributo color no se encuentra el intento de acceder a
+															este devuelve undefined. Para verificar si tiene el atributo
+															se usa el método hasOwnProperty. Se puede acceder a un
+															atributo de las dos formas obj.attr o obj["attr"].
+														</div>
+														<button class="btn btn-primary btn-sm" id="buttomVeryAttrColor">
+															Verificar atributo color
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card mb20 card-height">
+													<div class="card-body">
+														<h5 class="card-title">Eliminar Atributo</h5>
+														<div class="card-text mb10">
+															Para eliminar atributos de un objeto se pone la paralabra
+															resevada delete seguido de atributo que se desea eliminar:
+															delete gato.color
+														</div>
+														<button class="btn btn-primary btn-sm"
+															id="buttomDeleteAttrColor">
+															Eliminar atributo color
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card mb20 card-height">
+													<div class="card-body">
+														<h5 class="card-title">Ejecutar Métodos</h5>
+														<div class="card-text mb10">
+															Para ejecutar métodos de un objeto se llama al objeto
+															seguido del nombre del método: gato.listarEnemigos()
+														</div>
+														<button class="btn btn-primary btn-sm"
+															id="buttomEjecutarMetodos">
+															Ejecutar métodos
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card mb20 card-height">
+													<div class="card-body">
+														<h5 class="card-title">Iterar Atributos</h5>
+														<div class="card-text mb10">
+															Una de las formas de obtener todos los atributos y métodos
+															de un objeto es con for in: for (item in gato). Se puede
+															obtener el nombre de atrubuto y el valor.
+														</div>
+														<button class="btn btn-primary btn-sm"
+															id="buttomIterarAtributos">
+															Iterar atributos
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card mb20 card-height">
+													<div class="card-body">
+														<h5 class="card-title">Object Keys</h5>
+														<div class="card-text mb10">
+															Para obtener la lista de los nombres de los atributos y
+															métodos de un objeto es con el método keys de Object:
+															Object.keys(gato)
+														</div>
+														<button class="btn btn-primary btn-sm" id="buttomObjectKeys">
+															Obtener object keys
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card mb20 card-height">
+													<div class="card-body">
+														<h5 class="card-title">Get Own Property Names</h5>
+														<div class="card-text mb10">
+															Para obtener la lista de los nombres de los atributos y
+															métodos de un objeto se usa
+															Object.getOwnPropertyNames(gato), es similar a
+															Object.keys(gato) pero coge las propiedades no numerables
+															tambien.
+														</div>
+														<button class="btn btn-primary btn-sm"
+															id="buttomGetOwnPropertyNames">
+															Get Own Property Names
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card mb20 card-height">
+													<div class="card-body">
+														<h5 class="card-title">Object Values</h5>
+														<div class="card-text mb10">
+															Para obtener la lista de los valores de los atributos y
+															métodos de un objeto se usa Object.values(gato), lo que es
+															mejor que usar "for in" y despues acceder al valor del
+															atributo.
+														</div>
+														<button class="btn btn-primary btn-sm" id="buttomObjectValues">
+															Object Values
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card mb20 card-height">
+													<div class="card-body">
+														<h5 class="card-title">Get y Set</h5>
+														<div class="card-text mb10">
+															Las funciones get y set se manejan como si fuera un atributo
+															mas
+															del objeto
+															"sin ponerle parentisis". La regla de los getters es q no
+															reciven parametros
+															y tienen que retornar algún valor y la de los setters es que
+															reciben solo un
+															parametro.
+														</div>
+														<button class="btn btn-primary btn-sm mt5" id="buttomGet">
+															Get nombre
+														</button>
+														<button class="btn btn-primary btn-sm mt5" id="buttomSet">
+															Set nombre Tommy
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="card mb20 card-height">
+													<div class="card-body">
+														<h5 class="card-title">Object Entries</h5>
+														<div class="card-text mb10">
+															Para obtener la lista de los nombre y valores de los
+															atributos y métodos de un objeto se usa
+															Object.entries(gato), lo que devuelve un arreglo de todos
+															estos en formato ['clave','valor'].
+														</div>
+														<button class="btn btn-primary btn-sm" id="buttomObjectEntries">
+															Object Entries
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="card mb20">
+							<div class="card-body" style="padding-bottom: 0;">
+								<h5 class="card-title">Destructuring Assignment</h5>
+								<div class="card-text">
+									<div>
+										Destructuring assignment o (asignación por desestructuración, sintaxis de
+										desestructuración) es una expresión de JavaScript que permite desempacar valores
+										de arreglos o propiedades de objetos en distintas variables. Si existe una
+										variable con el nombre de uno de los atributos se puede usar un alias (nombre:
+										nombreAlias).
+									</div>
+									<div class="card mt15">
+										<div class="card-body">
+											<div id="divObjetoGatoDestructuring"></div>
+										</div>
+									</div>
+								</div>
+								<div class="row mt20" id="destructuringSobreObjetoGato">
+									<div class="col-md-4">
+										<div class="card mb20">
+											<div class="card-body">
+												<h5 class="card-title">Object Destructuring</h5>
+												<div class="card-text mb10">
+													Se realizará el Destructuring del objeto gato y se mostrarán los
+													valores de
+													sus atributos en una lista
+												</div>
+												<button class="btn btn-primary btn-sm"
+													id="buttomDestructuringSobreObjetoGato">
+													Ejecutar
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="card mb20">
+											<div class="card-body">
+												<h5 class="card-title">Array Destructuring</h5>
+												<div class="card-text mb10">
+													Se realizará el Destructuring del array correspondiente al atributo
+													enemigos y se mostrarán los valores en una lista.
+												</div>
+												<button class="btn btn-primary btn-sm" id="buttomDestructuringArray">
+													Ejecutar
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card mb10">
+							<div class="card-body">
+								<h5 class="card-title">Programación Orientada a Objetos</h5>
+								<div class="card-text">
+									<div>
+										En JavaScript, la programación orientada a objetos (POO) se lleva a cabo
+										utilizando objetos y funciones. Aunque JavaScript es un lenguaje basado en
+										prototipos puede implementar las caracteristicas básicas de la POO tales como la
+										encapsulación, la herencia y el polimorfismo.
+									</div>
+									<div class="card mt15">
+										<div class="card-body">
+											<h5 class="card-title">Prototipos</h5>
+											<div class="card-text">
+												Los prototipos en JavaScript son un mecanismo de herencia que permite a
+												los objetos compartir propiedades y métodos. Cada objeto en JavaScript
+												tiene una propiedad interna llamada "prototype" (prototipo), que es otro
+												objeto. Este objeto prototipo puede contener propiedades y métodos que
+												se heredarán por el objeto original.
+
+												El concepto de prototipos es fundamental en JavaScript, ya que es un
+												lenguaje basado en prototipos. Esto significa que en lugar de utilizar
+												una estructura de clases tradicional, JavaScript utiliza prototipos para
+												implementar la herencia y el polimorfismo.
+
+												Cuando se crea un nuevo objeto, este objeto hereda las propiedades y
+												métodos de su objeto prototipo. Si se intenta acceder a una propiedad o
+												método que no está definida en el objeto original, JavaScript buscará
+												automáticamente en el objeto prototipo y, si no se encuentra, continuará
+												subiendo por la cadena de prototipos hasta encontrar la propiedad o
+												método deseado.
+
+												En resumen, los prototipos en JavaScript son una forma de compartir
+												comportamientos y atributos entre objetos, lo que facilita la
+												reutilización de código y la creación de estructuras de datos más
+												flexibles y dinámicas.
+											</div>
+											<div class="card mt15">
+												<div class="card-body">
+													<div class="row">
+														<div class="col-md-6">
+															<h6 class="card-title">Métodos prototipos</h6>
+															<div class="card-text">
+																Los metodos prototipos no estan instanciados en los
+																objetos, solo se usan o se instancian en los objetos
+																que los necesiten. Tomando como ejemplo el objeto
+																Persona que solo tiene un atributo nombre se le va
+																asignar un método prototipo llamado saludar.
+																<div class="mt10">function Persona(nombre) {</div>
+																<div>&emsp;this.nombre = nombre;</div>
+																<div>}</div>
+																<div class="mt10">Persona.prototype.saludar = function
+																	() {</div>
+																<div>&emsp;return `${this.nombre} dice hola!`;</div>
+																<div>}</div>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<h6 class="card-title">Ejemplo de uso</h6>
+															<div class="card-text">
+																La insatancia del objeto Persona (Carlos) inicialmente
+																no tiene el método saludar.
+															</div>
+															<div id="divMostrarObjetoPersona" class="mt5"></div>
+															<button class="btn btn-primary btn-sm mt15"
+																id="buttomSaludar">
+																Saludar
+															</button>
+															<button class="btn btn-primary btn-sm mt15"
+																id="buttomAddPrototypeSaludar">
+																Agregar función prototipo saludar
+															</button>
+															<div id="divMostrarSaludo" class="mt10"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="card mt15">
+										<div class="card-body">
+											<h5 class="card-title">Clases</h5>
+											<div class="card-text">
+												Las clases en JavaScript son una estructura de datos introducida en
+												ES6. Las clases se utilizan para agrupar variables y funciones en un
+												elemento padre relacionado. En términos simples, una clase es un modelo
+												que define un conjunto de propiedades y comportamientos que pueden ser
+												compartidos por múltiples objetos (instancias).
+
+												Tienen un método especial llamado constructor, es constructor se llama
+												automáticamente cuando se crea una nueva instancia de la clase. Los
+												parámetros entre paréntesis en el constructor son opcionales y se
+												utilizan para inicializar las propiedades de la clase.
+
+												Los metodos dentro de un objeto definido con class se comvierten
+												automaticamente en funciones protoripo (Persona.prototype.saludar).
+											</div>
+											<div class="card mt15">
+												<div class="card-body">
+													<h6 class="card-title">Ejemplo de uso</h6>
+													<div class="row">
+														<div class="col-md-6">
+															<div class="card-text">
+																<div>class Persona {</div>
+																<div>&emsp;constructor(name, age) {</div>
+																<div>&emsp;&emsp;this.name = name;</div>
+																<div>&emsp;&emsp;this.age = age;</div>
+																<div>&emsp;}</div>
+																<div>&emsp;saludar = function () {</div>
+																<div>&emsp;&emsp;return `${this.name} dice hola desde la
+																	clase Persona`;
+																</div>
+																<div>&emsp;};</div>
+																<div>}</div>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="card-text">
+																Instancia la clase Persona
+															</div>
+															<div id="divMostrarClasePersona" class="mt5"></div>
+															<button class="btn btn-primary btn-sm mt15"
+																id="buttomSaludarClasePersona">
+																Saludar
+															</button>
+															<div id="divMostrarSaludoClasePersona" class="mt10"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="card mt15">
+										<div class="card-body">
+											<h5 class="card-title">Herencia</h5>
+											<div class="card-text">
+												La herencia en JavaScript es un concepto que nos permite hacer que un
+												objeto herede los comportamientos de otro. Esto se logra a través de la
+												cadena de prototipos, donde cada objeto tiene una propiedad privada
+												llamada [[Prototype]] que mantiene un enlace a otro objeto llamado su
+												prototipo.
+
+												La herencia en JavaScript nos permite organizar clases utilizando una
+												jerarquía, lo que nos permite escribir menos código y reutilizar
+												características. Esto es especialmente útil en la creación de patrones
+												de diseño y la construcción de aplicaciones más grandes y complejas.
+
+												En resumen, la herencia nos permite crear nuevos objetos
+												que heredan propiedades y métodos de otros objetos, lo que nos permite
+												reutilizar código y estructurar nuestro código de manera más eficiente y
+												organizada.
+											</div>
+											<div class="card mt15">
+												<div class="card-body">
+													<h6 class="card-title">Ejemplo de uso</h6>
+													<div class="row">
+														<div class="col-md-6">
+															<div class="card-text">
+																<div>class Estudiante extends Persona {</div>
+																<div>
+																	&emsp;//# denota atributos privados (no accesibles
+																	fuera de la
+																	clase)
+																</div>
+																<div>&emsp;#notas = [];</div>
+																<div>&emsp;constructor(name, edad, notas = []) {</div>
+																<div>
+																	&emsp;&emsp;//super accede al método constructor de
+																	la clase de quien hereda (Persona)
+																</div>
+																<div>&emsp;&emsp;super(name, edad);</div>
+																<div>&emsp;&emsp;this.#notas = notas;</div>
+																<div>&emsp;}</div>
+																<div>&emsp;saludar = function () {</div>
+																<div>
+																	&emsp;&emsp;return `${this.name} dice hola desde la
+																	clase
+																	Estudiante`;
+																</div>
+																<div>&emsp;};</div>
+																<div>
+																	&emsp;//Métodos get y set para acceder a atributos
+																	privados
+																</div>
+																<div>&emsp;set _notas(nota) { this.#notas.push(nota); }
+																</div>
+																<div>&emsp;get _notas() { return this.#notas; }</div>
+																<div>}</div>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="card-text">
+																Instancia la clase Estudiante
+															</div>
+															<div id="divMostrarClaseEstudiante" class="mt5"></div>
+															<button class="btn btn-primary btn-sm mt15"
+																id="buttomSaludarClaseEstudiante">
+																Saludar
+															</button>
+															<button class="btn btn-primary btn-sm mt15"
+																id="buttomAgregarNotaClaseEstudiante">
+																Agregar nota (7)
+															</button>
+															<div id="divMostrarSaludoClaseEstudiante" class="mt10">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="header4">
+					<button type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false"
+						class="accordion-button collapsed" aria-controls="collapse4">
+						<i class="fa fa-file-code font-weight-100 mr10"></i> DOM
+					</button>
+				</h2>
+				<div id="collapse4" class="accordion-collapse collapse" aria-labelledby="header4"
+					data-bs-parent="#accordion">
+					<div class="accordion-body">
+
+						<div class="card mb20 mt10">
+							<div class="card-body">
+								<h5 class="card-title">Query Selectors</h5>
+								<div class="card-text">
+									<div>
+										<strong>QuerySelector</strong> es un selector de elementos del DOM que devuelve
+										el primer elemento del documento que coincida con el grupo especificado de
+										selectores (para buscar utilizan un recorrido primero en profundidad pre
+										ordenado de los nodos del documento). Para selecciones multiples se puede usar
+										<strong>querySelectorAll</strong> que funciona igual pero devuelve una lista con
+										todos los elementos que coincidan con el selector.
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="card mt15">
+												<div class="card-body">
+													<h6>Ejemplos de uso</h6>
+													<div>document.querySelector('p')); //por tipo de etiqueta</div>
+													<div>document.querySelector('#identificador')); //por id</div>
+													<div>document.querySelector('.clase')); //por nombre de clase</div>
+													<div>document.querySelector('.clase1 .clase2')); //por nombre de
+														clase anidada</div>
+													<div>//Aquí, será retornado el primer elemento &lt;input
+														name="login" /&gt; dentro de &lt;div class="user-panel
+														main"&gt;.</div>
+													<div>document.querySelector("div.user-panel.main
+														input[name='login']")</div>
+													<div></div>
+													<div>document.querySelectorAll('.text-danger');</div>
+													<div>document.querySelectorAll('.container .text-danger');</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="card mt15">
+												<div class="card-body">
+													<h6>Elementos de prueba</h6>
+													<div>
+														<div class="container" id="elementosDePrueba">
+															<p id="ptext">
+																1 Lorem ipsum dolor sit amet consectetur
+																adipisicing elit. Illum, exercitationem.
+															</p>
+															<p class="text-danger">
+																2 Lorem ipsum dolor sit amet
+																consectetur adipisicing elit. Illum, exercitationem.
+															</p>
+															<p class="text-danger">
+																3 Lorem ipsum dolor sit amet
+																consectetur adipisicing elit. Illum, exercitationem.
+															</p>
+															<p class="text-danger mb10">
+																4 Lorem ipsum dolor sit amet
+																consectetur adipisicing elit. Illum, exercitationem.
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="card mt15">
+												<div class="card-body">
+													<button class="btn btn-primary btn-sm mb10"
+														id="buttomEjecutarQuerySelector">
+														Ejecutar querySelector
+													</button>
+													<button class="btn btn-primary btn-sm mb10"
+														id="buttomEjecutarQuerySelectorAll">
+														Ejecutar querySelectorAll
+													</button>
+													<div id="divMostrarSelectores">
+														Ejecutar para ver el resultado de las query selectors.
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="card mb20 mt10">
+							<div class="card-body">
+								<h5 class="card-title">Creacion de elementos</h5>
+								<div class="card-text">
+									<div class="row">
+										<div class="col-md-6">
+											Con document.createElement("etiqueta") se pueden crear elementos para
+											agregarlos
+											al DOM y estos pueden ser agregados con el método appendChild del elemento
+											donde
+											se van a agregar. También pueden ser agregados pasandole el codigo html como
+											texto a la propiedad innerHTML pero este sobreescriben los que tiene el
+											elemento. A continuación se muestran algunos elementos creados desde
+											javascript.
+										</div>
+										<div class="col-md-6">
+											<div class="card">
+												<div class="card-body">
+													<button class="btn btn-primary btn-sm mb10"
+														id="buttomCrearElemento">
+														Crear elemento
+													</button>
+													<div id="divMostrarElementosCreados"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card mb20 mt10">
+							<div class="card-body">
+								<h5 class="card-title">Document Fragment</h5>
+								<div class="card-text">
+									<div class="row">
+										<div class="col-md-6">
+											Document.createDocumentFragment() Crea un nuevo DocumentFragment vacío,
+											dentro del cual un nodo del DOM puede ser adicionado para construir
+											un nuevo arbol DOM fuera de pantalla, sobre este DocumentFragment se
+											realizan todas la operaciones de inserción requeridas y después se agrega
+											este al DOM lo que es una sola operación de refrescamiento de la pantalla.
+											Esto hace que si hay que hacer muchas inserciones no se satura el DOM,
+											porque cada vez que se agrega algun elemento este se renderiza.
+										</div>
+										<div class="col-md-6">
+											<div class="card">
+												<div class="card-body">
+													<button class="btn btn-primary btn-sm" id="buttomGenerarFragment">
+														Generar fragment
+													</button>
+													<div id="divMostrarFragmentCreado"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card mb10 mt10">
+							<div class="card-body">
+								<h5 class="card-title">HTML Templates</h5>
+								<div class="card-text">
+									<div class="row">
+										<div class="col-md-6">
+											El elemento HTML &lt;template&gt; es un mecanismo para mantener el contenido
+											HTML del lado del cliente que no se renderiza cuando se carga una página,
+											pero que posteriormente puede ser instanciado durante el tiempo de
+											ejecución empleando JavaScript.
+											Es un fragmento de contenido que está siendo almacenado para un uso
+											posterior en el documento. El analizador procesa el contenido del elemento
+											&lt;template&gt; durante la carga de la página, pero sólo lo hace para
+											asegurar que esos contenidos son válidos, sin embargo, estos contenidos del
+											elemento no se renderizan.
+										</div>
+										<div class="col-md-6">
+											<div class="card">
+												<div class="card-body">
+													<button class="btn btn-primary btn-sm mb10"
+														id="buttomGenerarTemplate">
+														Generar elemento desde template
+													</button>
+													<div>
+														<div>&lt;template id="template-parrafo"&gt;</div>
+														<div>&emsp; &lt;p style="text-decoration: underline; color:
+															red;"&gt;
+														</div>
+														<div>&emsp; &emsp; Elemento parrafo encapsulado dentro de un
+															template</div>
+														<div>&emsp; &lt;/p&gt;</div>
+														<div>&lt;/template&gt;</div>
+													</div>
+													<!-- template no renderiza el contenido durante la carga de la pagina (contiene un DocumentFragment) -->
+													<template id="templateParrafo">
+														<p
+															style="text-decoration: underline; color: red; margin-bottom: 0; margin-top: 5px;">
+															Elemento parrafo encapsulado dentro de un template
+														</p>
+													</template>
+													<div id="divMostrarTemplate"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="header5">
+					<button type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false"
+						class="accordion-button collapsed" aria-controls="collapse5">
+						<i class="fa fa-list-alt font-weight-100 mr10"></i> Formularios
+					</button>
+				</h2>
+				<div id="collapse5" class="accordion-collapse collapse" aria-labelledby="header5"
+					data-bs-parent="#accordion">
+					<div class="accordion-body">
+
+						<div class="card mb20 mt10">
+							<div class="card-body">
+								<h5 class="card-title">Formularios</h5>
+								<div class="card-text">
+									<div>
+										Los formularios permiten a los usuarios la introducción de datos, que
+										generalmente se envían a un servidor web para su procesamiento y almacenamiento,
+										o se usan en el lado del cliente para provocar de alguna manera una
+										actualización inmediata de la interfaz (por ejemplo, se añade otro elemento a
+										una lista, o se muestra u oculta una función de interfaz de usuario).
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card mb10 mt10">
+							<div class="card-body">
+								<h5 class="card-title">Validación de Formularios</h5>
+								<div class="card-text">
+									<div>
+										Para validar formularios en HTML, puedes utilizar atributos de validación
+										incorporados en los elementos de entrada como: required, minlength, maxlength,
+										pattern, type, entre otros. Desde javascript se realizan las validaciones en el
+										evento onsubmit del formulario o en los enventos key de los input, en ambos
+										casos se realizan comparaciones de los valores de los inputs através de
+										expresiones regulares (son patrones que se utilizan para hacer coincidir
+										combinaciones de caracteres en cadenas), longitud del texto y otras validaciones
+										de forma programática.
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="card mt15">
+												<div class="card-body">
+													<h6>Formulario validado con HTML</h6>
+													<!-- novalidate desactiva las validaciones -->
+													<!-- <form id="formulario" novalidate> -->
+													<form id="formularioValidadoConHTML" style="margin-bottom: 0;">
+														<input class="form-control mb-2" name="userName"
+															placeholder="Ingrese su nombre" autocomplete="off"
+															id="userName" type="text" required
+															pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title="Solo letras"
+															minlength="3" maxlength="10" />
+														<input class="form-control mb-2" name="userEmail"
+															placeholder="Ingrese su correo" id="userEmail"
+															autocomplete="off" type="email" required
+															pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+															title="Ingresa un email válido" />
+														<button class="btn btn-primary" type="submit">Enviar</button>
+													</form>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="card mt15">
+												<div class="card-body">
+													<h6>Formulario validado con JS</h6>
+													<!-- novalidate desactiva las validaciones -->
+													<!-- <form id="formulario" novalidate> -->
+													<form id="formularioValidadoConJS" novalidate
+														style="margin-bottom: 0;">
+														<input class="form-control mb-2" name="userName"
+															placeholder="Ingrese su nombre" autocomplete="off"
+															id="userName" type="text" required
+															pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title="Solo letras"
+															minlength="3" maxlength="10" />
+														<p class="text-danger mb-2 d-none" id="alertName"></p>
+														<input class="form-control mb-2" name="userEmail"
+															placeholder="Ingrese su correo" id="userEmail"
+															autocomplete="off" type="email" required
+															pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+															title="Ingresa un email válido" />
+														<p class="text-danger mb-2 d-none" id="alertEmail"></p>
+														<button class="btn btn-primary" type="submit">Enviar</button>
+													</form>
+													<div class="alert alert-success mt-2 mb0 d-none" id="alertSuccess">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div id="divMostrarValoresForm"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="header6">
+					<button type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false"
+						class="accordion-button collapsed" aria-controls="collapse6">
+						<i class="fa fa-exchange-alt mr10"></i> Asincronía
+					</button>
+				</h2>
+				<div id="collapse6" class="accordion-collapse collapse" aria-labelledby="header6"
+					data-bs-parent="#accordion">
+					<div class="accordion-body">
+
+						<div class="card mb20 mt10">
+							<div class="card-body">
+
+								<h5 class="card-title">Callbacks</h5>
+								<div class="card-text">
+									<div>
+										Las funciones callbacks en JavaScript se utilizan para manejar la ejecución de
+										código de manera asíncrona y controlar el flujo de ejecución.
+									</div>
+									<ul style="margin-top: 1rem;">
+										<li>
+											Ejecución asíncrona: Los callbacks permiten que una función se ejecute
+											después de que se complete una tarea, como una solicitud de red o una
+											operación de entrada/salida. Esto es especialmente útil en JavaScript, ya
+											que es un lenguaje de programación de un solo hilo, lo que significa que
+											solo puede ejecutar una tarea a la vez.
+										</li>
+										<li>
+											Control del flujo de ejecución: Los callbacks permiten que el código se
+											ejecute en un orden específico, incluso si las tareas se completan en un
+											orden diferente. Esto es útil cuando se necesita que ciertas tareas se
+											completen antes de que se ejecute otra tarea.
+										</li>
+										<li>
+											Flexibilidad: Los callbacks permiten que las funciones sean más flexibles y
+											reutilizables. Al pasar una función como un argumento a otra función, se
+											puede personalizar el comportamiento de la función principal de acuerdo con
+											las necesidades específicas.
+										</li>
+									</ul>
+									<div>
+										En resumen, los callbacks en JavaScript se utilizan para manejar la ejecución
+										asíncrona, controlar el flujo de ejecución y aumentar la flexibilidad y la
+										reutilización de las funciones.
+									</div>
+								</div>
+
+								<div class="card mb15 mt15">
+									<div class="card-body">
+										<h6 class="card-title">JSON de prueba (User Posts)</h6>
+										<div class="card-text">
+											<div>
+												<div>
+													{
+													id: 1,
+													userId: 1,
+													title: "sunt aut facere repellat",
+													body: "quia et suscipit suscipit recusandae consequuntur expedita et
+													cumreprehenderit"
+													},
+												</div>
+												<div>
+													{
+													id: 2,
+													userId: 1,
+													title: "qui est esse",
+													body: "est rerum tempore vitae sequi sint nihil reprehenderit dolor
+													beatae
+													ea dolores neque fugiat"
+													},
+												</div>
+												<div>
+													{
+													id: 3,
+													userId: 1,
+													title: "ea molestias quasi exercitationem",
+													body: "et iusto sed quo iure voluptatem occaecati omnis eligendi aut
+													ad"
+													}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<h5 class="card-title">Ejemplo de uso de callback</h5>
+								<div class="card-text mb10">
+									En este ejemplo se usan funciones callback para realizar búsquedas por id
+									dentro de los valores del json user posts. Estas respuestas tienen un
+									retraso de 2 segundos para verificar las asincronía.
+								</div>
+								<button class="btn btn-primary btn-sm" id="buttomCallbakFindPostById1">
+									Buscar Post por id 1
+								</button>
+								<button class="btn btn-primary btn-sm" id="buttomCallbakFindPostById4">
+									Buscar Post por id 4
+								</button>
+								<button class="btn btn-primary btn-sm" id="buttomCallbakFindPostByIdRange">
+									Buscar Post por los ids del 1 al 4
+								</button>
+								<button class="btn btn-primary btn-sm" id="buttomCallbakFindPostById142">
+									Buscar Post por los ids 1, 4 y 2
+								</button>
+								<div class="card mt15">
+									<div class="card-body">
+										<h6 class="card-title">Resultados del callback:</h6>
+										<div class="card-text">
+											<div id="divResultadoCallbaks">
+												Ejecutar para ver resultados.
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="card mb20 mt10">
+
+							<div class="card-body">
+								<h5 class="card-title">Promesas</h5>
+								<div class="card-text">
+									<div>
+										Una promesa es un objeto que representa un valor que puede estar disponible
+										ahora, en el futuro o nunca. Esta representación encapsula el resultado (éxito o
+										error) de una operación asíncrona. El codigo que debajo de la promesa se sigue
+										ejecutando.
+									</div>
+
+									<h5 class="card-title mt15">Ejemplo de uso de promesas</h5>
+									<div class="card-text mb10">
+										En este ejemplo se usan promesas para realizar búsquedas por id
+										dentro de los valores del json user posts. Estas respuestas tienen un
+										retraso de 2 segundos para verificar las asincronía.
+									</div>
+									<button class="btn btn-primary btn-sm" id="buttomPromesasFindPostById1">
+										Buscar Post por id 1
+									</button>
+									<button class="btn btn-primary btn-sm" id="buttomPromesasFindPostById4">
+										Buscar Post por id 4
+									</button>
+									<button class="btn btn-primary btn-sm" id="buttomPromesasFindPostByIdRange">
+										Buscar Post por los ids del 1 al 4
+									</button>
+									<button class="btn btn-primary btn-sm" id="buttomPromesasFindPostById142">
+										Buscar Post por los ids 1, 4 y 2
+									</button>
+									<div class="card mt15">
+										<div class="card-body">
+											<h6 class="card-title">Resultados de las promesas:</h6>
+											<div class="card-text">
+												<div id="divResultadoPromesas">
+													Ejecutar para ver resultados.
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card mb10 mt10">
+
+							<div class="card-body">
+								<h5 class="card-title">Async Await</h5>
+								<div class="card-text">
+									<div>
+										Las palabras clave async y await en JavaScript se utilizan para trabajar con
+										promesas de una manera más legible y secuencial. Ayudan a simplificar el código
+										asincrónico al permitirle escribir código asincrónico que parece sincrónico. Se
+										puede hacer multiples llamadas a promesas desde dentro de una funcion async
+										pero lo que esta debajo de await no se ejecuta hasta que se responde la
+										anterior y si da error salta sin ejecutar lo que sigue hasta encontrar un catch
+										o emite el error.
+									</div>
+
+									<h5 class="card-title mt15">Ejemplo de uso de Async Await</h5>
+									<div class="card-text mb10">
+										En este ejemplo se usan promesas através async await para realizar búsquedas por
+										id dentro de los valores del json user posts. Estas respuestas tienen un retraso
+										de 2 segundos para verificar las asincronía.
+									</div>
+									<button class="btn btn-primary btn-sm" id="buttomAsyncAwaitFindPostById1">
+										Buscar Post por id 1
+									</button>
+									<button class="btn btn-primary btn-sm" id="buttomAsyncAwaitFindPostById4">
+										Buscar Post por id 4
+									</button>
+									<button class="btn btn-primary btn-sm" id="buttomAsyncAwaitFindPostByIdRange">
+										Buscar Post por los ids del 1 al 4
+									</button>
+									<button class="btn btn-primary btn-sm" id="buttomAsyncAwaitFindPostById142">
+										Buscar Post por los ids 1, 4 y 2
+									</button>
+									<button class="btn btn-primary btn-sm" id="buttomAsyncAwaitPromiseAll">
+										Búsqueda múltiple simultanea
+									</button>
+									<div class="card mt15">
+										<div class="card-body">
+											<h6 class="card-title">Resultados de las promesas:</h6>
+											<div class="card-text">
+												<div id="divResultadoAsyncAwait">
+													Ejecutar para ver resultados.
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="header7">
+					<button type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false"
+						class="accordion-button collapsed" aria-controls="collapse7">
+						<i class="fa fa-server mr10"></i> Fetch
+					</button>
+				</h2>
+				<div id="collapse7" class="accordion-collapse collapse" aria-labelledby="header7"
+					data-bs-parent="#accordion">
+					<div class="accordion-body">
+
+						<div class="card mb10 mt10">
+							<div class="card-body">
+
+								<h5 class="card-title">Fetch</h5>
+								<div class="card-text mb10">
+									<div>
+										Fetch es una API JavaScript que se utiliza para realizar solicitudes de red al
+										servidor y cargar nueva información cuando sea necesario. Te permite enviar
+										diferentes tipos de solicitudes, como GET, POST, PUT, DELETE, entre otros.
+										Además, puedes modificar los encabezados y enviar datos. Devuelve una promesa
+										que se cumple una vez que la respuesta está disponible.
+									</div>
+								</div>
+
+								<h5 class="card-title">Ejemplo de uso de fetch</h5>
+								<div class="card-text mb10">
+									Para las los ejemplos con fetch se utiliza la REST API de
+									jsonplaceholder que brinda de forma gratuita diferentes contenidos
+									accesibles desde el sitio <a href="https://jsonplaceholder.typicode.com"
+										target="_blank">https://jsonplaceholder.typicode.com</a>. Para las búsquedas se
+									realizan peticiones al recurso Post de esta REST API.
+								</div>
+								<button class="btn btn-primary btn-sm" id="buttomFetchFindPostById1">
+									Buscar Post por id 1
+								</button>
+								<button class="btn btn-primary btn-sm" id="buttomFetchFindPostById4">
+									Buscar Post por id 4
+								</button>
+								<button class="btn btn-primary btn-sm" id="buttomFetchFindPostAll">
+									Buscar todos los Post
+								</button>
+								<div class="card mt15">
+									<div class="card-body">
+										<h6 class="card-title">Resultados de las peticiones: <span
+												id="fetchRespCount"></span></h6>
+										<div class="card-text">
+											<div id="divResultadoFetch">
+												Ejecutar para ver resultados.
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<h5 class="card-title mt10">Ejemplo de uso en la REST API de Rick y Morty</h5>
+								<div class="card-text mb10">
+									<a href="https://rickandmortyapi.com/api/character"
+										target="_blank">https://rickandmortyapi.com/api/character</a>
+								</div>
+								<button class="btn btn-primary btn-sm" id="buttomFetchGetAllCharacters">
+									Buscar todos los personajes
+								</button>
+								<div class="card mt15">
+									<div class="card-body"
+										style="padding-top: 3.5rem; padding-bottom: 2rem; padding-left: 0; padding-right: 0;">
+										<div class="container">
+											<section class="d-flex align-items-center" id="loading">
+												<strong>Loading...</strong>
+												<div class="spinner-border ms-auto" role="status" aria-hidden="true">
+												</div>
+											</section>
+											<div class="row" id="card-dinamica">
+												<template id="template-card">
+													<article class="col-md-6 col-lg-3 mb-3">
+														<div class="card text-center shadow">
+															<img src="https://rickandmortyapi.com/api/character/avatar/361.jpeg"
+																alt="" class="card-img-top" />
+															<div class="card-body">
+																<h5 class="card-title text-primary lead">Rick Sanchez
+																</h5>
+																<p class="lead text-secondary">Human</p>
+															</div>
+														</div>
+													</article>
+												</template>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="header8">
+					<button type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false"
+						class="accordion-button collapsed" aria-controls="collapse8">
+						<i class="fa fa-cubes mr10"></i> Módulos
+					</button>
+				</h2>
+				<div id="collapse8" class="accordion-collapse collapse" aria-labelledby="header8"
+					data-bs-parent="#accordion">
+					<div class="accordion-body">
+
+						<div class="card mb10 mt10">
+							<div class="card-body">
+
+								<h5 class="card-title">Módulos</h5>
+								<div class="card-text mb10">
+									<div>
+										En JavaScript, los módulos son un conjunto de funciones o código relacionado que
+										se agrupan en un archivo. Estos módulos permiten dividir el código en partes más
+										manejables, lo que facilita la mantenibilidad del código base. Los módulos se
+										pueden importar entre sí.
+									</div>
+									<div class="mt5">
+										Para utilizar módulos en JavaScript, hay que utilizar las sintaxis de
+										importación y exportación. Si se va a importar un modulo hay que ir al html y
+										declarar el script que contendrá la importacion como type="module" y si es *.js
+										el script q se va a importa hay que agregar la extencion o da error la
+										importacion. Para que este proceso de importación funcione correctamente se
+										requiere que la página este corriendo en un servidor porque si se habre la
+										página directamente desde el file da error de CORS (Cross-Origin Resource
+										Sharing), que se produce cuando un navegador web bloquea una solicitud que
+										proviene de un origen diferente al del sitio web actual. Cuando intentas
+										importar un módulo JavaScript utilizando la sintaxis import en un archivo HTML,
+										el navegador trata de obtener el módulo desde una URL diferente al archivo HTML
+										actual. Esto se considera una solicitud entre orígenes diferentes y desencadena
+										un error de CORS. Si el servidor no está configurado correctamente para permitir
+										solicitudes desde orígenes diferentes también se producirá pero esto no suele
+										suceder comúnmente.
+									</div>
+									<div class="mt5">
+										Por ejemplo, para exportar un arreglo llamado "frutas" (Se pueden exportar
+										funciones, clases, var, let y const) desde un archivo llamado "modulo1.js", se
+										utiliza la siguiente sintaxis:
+									</div>
+									<div class="mt5 resaltar">
+										export const frutas = ["🍇", "🍉", "🍍", "🥭", "🍎"];
+									</div>
+									<div class="mt5">
+										Y para importar el arreglo "frutas" en otro archivo, se utilizar la siguiente
+										sintaxis (como la extención del modulo1 es *.js hay que ponerlo explícitamente):
+									</div>
+									<div class="mt5 resaltar">
+										<div>import { frutas } from "./modules/modulo1.js";</div>
+										<div>console.log(frutas);</div>
+									</div>
+									<div class="mt5">
+										El arreglo se puede utilizar inmediatamente después de importarlo. Se pueden
+										usar alias para el los nombres de los elementos que se van a exportar con vistas
+										a evitar colisiones de nombres de haberlas.
+									</div>
+									<div class="mt5 resaltar">
+										<div>import { frutas as otroNombre} from "./modules/modulo1.js";</div>
+										<div>console.log(otroNombre);</div>
+									</div>
+								</div>
+
+								<h5 class="card-title mb20">Ejemplo de uso de elementos importados</h5>
+								<button class="btn btn-primary btn-sm" id="buttomElementosModulo1">
+									Mostrar elementos del Módulo 1
+								</button>
+								<button class="btn btn-primary btn-sm" id="buttomElementosModulo2">
+									Mostrar elementos del Módulo 2
+								</button>
+								<div class="card mt15 mb5">
+									<div class="card-body">
+										<div class="card-text">
+											<div id="divResultadoModulos">
+												Ejecutar para ver los elementos.
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="text-align-center mb15">
+			<div class="display-inline-block">
+				<input class='input-switch' type="checkbox" id="buttomActivarCierreAccordeon" checked />
+				<label class="label-switch" for="buttomActivarCierreAccordeon"></label>
+				<span class="info-text"></span>
+			</div>
+		</div>
+
+	</div>
+
+	<!--
+		Se ponen los script al final del body porque hay que esperar que este el html rederizado para poder acceder a los elementos de la pagina desde el controlador.
+		El atributo defer (<script src="controller.js" defer></script>) indica al navegador que no espere por el script y el script carga en segundo plano y se ejecuta cuando el DOM esta listo 
+		(pero antes del evento DOMContentLoaded). Algunos browser aun no implementan defer por lo que la mejor opcion sigue siendo DOMContentLoaded.
+	-->
+	<script src="controller.js" type="module"></script>
+	<script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
