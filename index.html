@@ -52,13 +52,10 @@
 								<h5 class="card-title">DOMContentLoaded</h5>
 								<div class="card-text">
 									<div>
-										Si no se sabe el orden en que se cargan los script con relacion al render del
-										DOM
-										se puede usar el evento DOMContentLoaded que garantiza que el DOM esté cargado
-										por
-										completo.
-										El evento DOMContentLoaded se activa cuando se carga la página DOM y se cargan y
-										ejecutan todos los scripts diferidos.
+										Si no se sabe el orden en que se cargan los scripts con relación al render del
+										DOM se puede usar el evento DOMContentLoaded que garantiza que el DOM esté
+										cargado por completo. El evento DOMContentLoaded se activa cuando se carga la
+										página DOM y se cargan y ejecutan todos los scripts diferidos.
 									</div>
 									<div>
 										Para que un script se cargue diferido hay que agregarle el atributo defer al
@@ -78,11 +75,11 @@
 							<div class="card-body">
 								<h5 class="card-title">Propagación de Eventos</h5>
 								<div class="card-text mb15">
-									Cuando se ejecuta un evento en un componente hijo para que el evento no se
-									propague hacia el padre se utiliza la función stopPropagation(). Si se da click en
-									uno los div marcados en rojo en dependencia de si esta activa o no la propagación
-									del error en esos elementos se mostrará un alert como si se hubiese clickeado sobre
-									ellos aunque el click halla sido solo en el hijo.
+									Cuando se ejecuta un evento en un componente hijo para que el evento no se propague
+									hacia el padre se utiliza la función stopPropagation(). Si se da click en uno los
+									div marcados en rojo en dependencia de si esta activa o no la propagación del error
+									en esos elementos se mostrará un alert como si se hubiese clicando sobre ellos,
+									aunque el click haya sido solo en el hijo.
 								</div>
 								<div class="card">
 									<div class="card-body">
@@ -93,12 +90,12 @@
 											</button>
 										</div>
 										<div class="divParaPropagacionDeEventos" onclick="alert('div 1 clicked')">
-											<p>div 1 para probar propagacion de eventos</p>
+											<p>(Dar click) div 1 para probar propagación de eventos</p>
 											<div class="divParaPropagacionDeEventos" onclick="alert('div 2 clicked')">
-												<p>div 2 para probar propagacion de eventos</p>
+												<p>(Dar click) div 2 para probar propagación de eventos</p>
 												<div class="divParaPropagacionDeEventos"
 													onclick="alert('div 3 clicked')">
-													<p>div 3 para probar propagacion de eventos</p>
+													<p>(Dar click) div 3 para probar propagación de eventos</p>
 												</div>
 											</div>
 										</div>
@@ -114,11 +111,10 @@
 									<div class="col-md-6">
 										<div class="card-text mb15">
 											Para cancela el evento si este es cancelable, sin detener el resto del
-											funcionamiento del evento, se utiliza el método preventDefault(). Si no esta
-											activo
-											el preventDefault la página se va a recargar al ejecutar el evento submit en
-											el
-											formulario y el ancla. Si esta activo no se va a recargar la página.
+											funcionamiento del evento, se utiliza el método preventDefault(). Si no está
+											activo el preventDefault la página se va a recargar al ejecutar el evento
+											submit en el formulario y el ancla. Si está activo no se va a recargar la
+											página.
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -161,11 +157,11 @@
 							<div class="card-body">
 								<h5 class="card-title">Delegación de Eventos</h5>
 								<div class="card-text mb15">
-									En lugar de agregar un detector de eventos a todos y cada uno
-									de los elementos similares o que están en una estructura gerárquica, podemos agregar
-									un detector de eventos a un elemento principal y llamar a un evento en un objetivo
-									en particular utilizando la propiedad (target) del objeto de evento. Aquí no hay
-									propagacion de eventos.
+									En lugar de agregar un detector de eventos a todos y cada uno de los elementos
+									similares o que están en una estructura jerárquica, podemos agregar un detector de
+									eventos a un elemento principal y llamar a un evento en un objetivo en particular
+									utilizando la propiedad (target) del objeto de evento. Aquí no hay propagación de
+									eventos.
 								</div>
 								<div class="card">
 									<div class="card-body">
@@ -320,7 +316,7 @@
 										<h5 class="card-title">Find</h5>
 										<div class="card-text mb10">
 											El método find devuelve el valor del primer elemento del array que cumple la
-											condicion, si no encuentra devuelve undefined.
+											condición, si no encuentra devuelve undefined.
 										</div>
 										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListFind">
 											Find Amy
@@ -337,7 +333,7 @@
 										<h5 class="card-title">Some</h5>
 										<div class="card-text mb10">
 											El método some comprueba si al menos un elemento del array cumple con la
-											condición y devuelve true ó false.
+											condición y devuelve true o false.
 										</div>
 										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListSome">
 											Some Amy
@@ -403,7 +399,7 @@
 										<h5 class="card-title">Spread Syntax</h5>
 										<div class="card-text mb10">
 											La Spread Syntax permite a un elemento iterable tal como un arreglo o cadena
-											ser expandido en lugares donde habria que recorrerlos para acceder a sus
+											ser expandido en lugares donde habría que recorrerlos para acceder a sus
 											elementos.
 										</div>
 										<button class="btn btn-primary btn-sm mt5" id="buttomUsersListSpread">
@@ -480,7 +476,7 @@
 									<div class="card-body">
 										<h5 class="card-title">Objeto Set</h5>
 										<div class="card-text mb10">
-											El objeto Set es una colecciones de valores similar a un arreglo que permite
+											El objeto Set es una colección de valores similar a un arreglo que permite
 											almacenar valores únicos de cualquier tipo, ya sea valores primitivos o
 											referencias a objetos. Un valor en un Set solo puede ocurrir una vez, es
 											único en la colección del Set. ["🍕", "🍕", "🍕", "🍔", "🍟"]
@@ -525,16 +521,16 @@
 
 						<div class="card mb20 mt10">
 							<div class="card-body">
-								<h5 class="card-title">Pase de Dato</h5>
+								<h5 class="card-title">Pase de Datos</h5>
 								<div class="card-text">
 									<div>
-										Se denomina pase de datos a la asignación de valores a una varible. Esta
-										asignación de datos se puede realizar de dos formas: por valor o referencia.
-										El pase de datos por valor es cuando se le asigna a la variable un valor que no
+										Se denomina pase de datos a la asignación de valores a una variable. Esta
+										asignación de datos se puede realizar de dos formas: por valor o referencia. El
+										pase de datos por valor es cuando se le asigna a la variable un valor que no
 										guarda relación con la variable que se lo asignó por lo que al modificar el
 										valor de esta la que se lo asignó no sufre cabios (Si es un tipo de dato
-										primitivo es por valor). Por otro lado en el pase de datos por referencia la
-										variable guarda un vinculo (puntero o referencia) con la variable que le asignó
+										primitivo es por valor). Por otro lado, en el pase de datos por referencia la
+										variable guarda un vínculo (puntero o referencia) con la variable que le asignó
 										el valor y si se modifica esta también se modificará la otra (Si es un dato no
 										primitivo como funciones, objetos u arrays es por referencia).
 									</div>
@@ -606,8 +602,8 @@
 													<div class="card-body">
 														<h5 class="card-title">Eliminar Atributo</h5>
 														<div class="card-text mb10">
-															Para eliminar atributos de un objeto se pone la paralabra
-															resevada delete seguido de atributo que se desea eliminar:
+															Para eliminar atributos de un objeto se pone la palabra
+															reservada delete seguido de atributo que se desea eliminar:
 															delete gato.color
 														</div>
 														<button class="btn btn-primary btn-sm"
@@ -638,8 +634,8 @@
 														<h5 class="card-title">Iterar Atributos</h5>
 														<div class="card-text mb10">
 															Una de las formas de obtener todos los atributos y métodos
-															de un objeto es con for in: for (item in gato). Se puede
-															obtener el nombre de atrubuto y el valor.
+															de un objeto es con for in: for (let item in gato). Se puede
+															obtener el nombre de atributo y el valor.
 														</div>
 														<button class="btn btn-primary btn-sm"
 															id="buttomIterarAtributos">
@@ -672,7 +668,7 @@
 															métodos de un objeto se usa
 															Object.getOwnPropertyNames(gato), es similar a
 															Object.keys(gato) pero coge las propiedades no numerables
-															tambien.
+															también.
 														</div>
 														<button class="btn btn-primary btn-sm"
 															id="buttomGetOwnPropertyNames">
@@ -688,7 +684,7 @@
 														<div class="card-text mb10">
 															Para obtener la lista de los valores de los atributos y
 															métodos de un objeto se usa Object.values(gato), lo que es
-															mejor que usar "for in" y despues acceder al valor del
+															mejor que usar "for in" y después acceder al valor del
 															atributo.
 														</div>
 														<button class="btn btn-primary btn-sm" id="buttomObjectValues">
@@ -703,13 +699,10 @@
 														<h5 class="card-title">Get y Set</h5>
 														<div class="card-text mb10">
 															Las funciones get y set se manejan como si fuera un atributo
-															mas
-															del objeto
-															"sin ponerle parentisis". La regla de los getters es q no
-															reciven parametros
-															y tienen que retornar algún valor y la de los setters es que
-															reciben solo un
-															parametro.
+															más del objeto "sin ponerle paréntesis". La regla de los
+															getters es q no reciben parámetros y tienen que retornar
+															algún valor y la de los setters es que reciben solo un
+															parámetro.
 														</div>
 														<button class="btn btn-primary btn-sm mt5" id="buttomGet">
 															Get nombre
@@ -802,7 +795,7 @@
 									<div>
 										En JavaScript, la programación orientada a objetos (POO) se lleva a cabo
 										utilizando objetos y funciones. Aunque JavaScript es un lenguaje basado en
-										prototipos puede implementar las caracteristicas básicas de la POO tales como la
+										prototipos puede implementar las características básicas de la POO tales como la
 										encapsulación, la herencia y el polimorfismo.
 									</div>
 									<div class="card mt15">
@@ -813,24 +806,19 @@
 												los objetos compartir propiedades y métodos. Cada objeto en JavaScript
 												tiene una propiedad interna llamada "prototype" (prototipo), que es otro
 												objeto. Este objeto prototipo puede contener propiedades y métodos que
-												se heredarán por el objeto original.
-
-												El concepto de prototipos es fundamental en JavaScript, ya que es un
-												lenguaje basado en prototipos. Esto significa que en lugar de utilizar
-												una estructura de clases tradicional, JavaScript utiliza prototipos para
-												implementar la herencia y el polimorfismo.
-
-												Cuando se crea un nuevo objeto, este objeto hereda las propiedades y
-												métodos de su objeto prototipo. Si se intenta acceder a una propiedad o
-												método que no está definida en el objeto original, JavaScript buscará
-												automáticamente en el objeto prototipo y, si no se encuentra, continuará
-												subiendo por la cadena de prototipos hasta encontrar la propiedad o
-												método deseado.
-
-												En resumen, los prototipos en JavaScript son una forma de compartir
-												comportamientos y atributos entre objetos, lo que facilita la
-												reutilización de código y la creación de estructuras de datos más
-												flexibles y dinámicas.
+												se heredarán por el objeto original. El concepto de prototipos es
+												fundamental en JavaScript, ya que es un lenguaje basado en prototipos.
+												Esto significa que, en lugar de utilizar una estructura de clases
+												tradicional, JavaScript utiliza prototipos para implementar la herencia
+												y el polimorfismo. Cuando se crea un nuevo objeto, este objeto hereda
+												las propiedades y métodos de su objeto prototipo. Si se intenta acceder
+												a una propiedad o método que no está definida en el objeto original,
+												JavaScript buscará automáticamente en el objeto prototipo y, si no se
+												encuentra, continuará subiendo por la cadena de prototipos hasta
+												encontrar la propiedad o método deseado. En resumen, los prototipos en
+												JavaScript son una forma de compartir comportamientos y atributos entre
+												objetos, lo que facilita la reutilización de código y la creación de
+												estructuras de datos más flexibles y dinámicas.
 											</div>
 											<div class="card mt15">
 												<div class="card-body">
@@ -838,11 +826,11 @@
 														<div class="col-md-6">
 															<h6 class="card-title">Métodos prototipos</h6>
 															<div class="card-text">
-																Los metodos prototipos no estan instanciados en los
-																objetos, solo se usan o se instancian en los objetos
-																que los necesiten. Tomando como ejemplo el objeto
-																Persona que solo tiene un atributo nombre se le va
-																asignar un método prototipo llamado saludar.
+																Los métodos prototipos no están instanciados en los
+																objetos, solo se usan o se instancian en los objetos que
+																los necesiten. Tomando como ejemplo el objeto Persona
+																que solo tiene un atributo nombre se le va asignar un
+																método prototipo llamado saludar.
 																<div class="mt10">function Persona(nombre) {</div>
 																<div>&emsp;this.nombre = nombre;</div>
 																<div>}</div>
@@ -855,7 +843,7 @@
 														<div class="col-md-6">
 															<h6 class="card-title">Ejemplo de uso</h6>
 															<div class="card-text">
-																La insatancia del objeto Persona (Carlos) inicialmente
+																La instancia del objeto Persona (Carlos) inicialmente
 																no tiene el método saludar.
 															</div>
 															<div id="divMostrarObjetoPersona" class="mt5"></div>
@@ -878,19 +866,17 @@
 										<div class="card-body">
 											<h5 class="card-title">Clases</h5>
 											<div class="card-text">
-												Las clases en JavaScript son una estructura de datos introducida en
-												ES6. Las clases se utilizan para agrupar variables y funciones en un
-												elemento padre relacionado. En términos simples, una clase es un modelo
-												que define un conjunto de propiedades y comportamientos que pueden ser
-												compartidos por múltiples objetos (instancias).
-
-												Tienen un método especial llamado constructor, es constructor se llama
-												automáticamente cuando se crea una nueva instancia de la clase. Los
-												parámetros entre paréntesis en el constructor son opcionales y se
-												utilizan para inicializar las propiedades de la clase.
-
-												Los metodos dentro de un objeto definido con class se comvierten
-												automaticamente en funciones protoripo (Persona.prototype.saludar).
+												Las clases en JavaScript son una estructura de datos introducida en ES6.
+												Las clases se utilizan para agrupar variables y funciones en un elemento
+												padre relacionado. En términos simples, una clase es un modelo que
+												define un conjunto de propiedades y comportamientos que pueden ser
+												compartidos por múltiples objetos (instancias). Tienen un método
+												especial llamado constructor, es constructor se llama automáticamente
+												cuando se crea una nueva instancia de la clase. Los parámetros entre
+												paréntesis en el constructor son opcionales y se utilizan para
+												inicializar las propiedades de la clase. Los métodos dentro de un objeto
+												definido con class se convierten automáticamente en funciones prototipo
+												(Persona.prototype.saludar).
 											</div>
 											<div class="card mt15">
 												<div class="card-body">
@@ -913,7 +899,7 @@
 														</div>
 														<div class="col-md-6">
 															<div class="card-text">
-																Instancia la clase Persona
+																Instancia de la clase Persona
 															</div>
 															<div id="divMostrarClasePersona" class="mt5"></div>
 															<button class="btn btn-primary btn-sm mt15"
@@ -934,16 +920,13 @@
 												La herencia en JavaScript es un concepto que nos permite hacer que un
 												objeto herede los comportamientos de otro. Esto se logra a través de la
 												cadena de prototipos, donde cada objeto tiene una propiedad privada
-												llamada [[Prototype]] que mantiene un enlace a otro objeto llamado su
-												prototipo.
-
-												La herencia en JavaScript nos permite organizar clases utilizando una
-												jerarquía, lo que nos permite escribir menos código y reutilizar
-												características. Esto es especialmente útil en la creación de patrones
-												de diseño y la construcción de aplicaciones más grandes y complejas.
-
-												En resumen, la herencia nos permite crear nuevos objetos
-												que heredan propiedades y métodos de otros objetos, lo que nos permite
+												llamada [Prototype] que mantiene un enlace a otro objeto llamado su
+												prototipo. La herencia en JavaScript nos permite organizar clases
+												utilizando una jerarquía, lo que nos permite escribir menos código y
+												reutilizar características. Esto es especialmente útil en la creación de
+												patrones de diseño y la construcción de aplicaciones más grandes y
+												complejas. En resumen, la herencia nos permite crear nuevos objetos que
+												heredan propiedades y métodos de otros objetos, lo que nos permite
 												reutilizar código y estructurar nuestro código de manera más eficiente y
 												organizada.
 											</div>
@@ -987,7 +970,7 @@
 														</div>
 														<div class="col-md-6">
 															<div class="card-text">
-																Instancia la clase Estudiante
+																Instancia de la clase Estudiante
 															</div>
 															<div id="divMostrarClaseEstudiante" class="mt5"></div>
 															<button class="btn btn-primary btn-sm mt15"
@@ -1033,8 +1016,9 @@
 										<strong>QuerySelector</strong> es un selector de elementos del DOM que devuelve
 										el primer elemento del documento que coincida con el grupo especificado de
 										selectores (para buscar utilizan un recorrido primero en profundidad pre
-										ordenado de los nodos del documento). Para selecciones multiples se puede usar
-										<strong>querySelectorAll</strong> que funciona igual pero devuelve una lista con
+										ordenado de los nodos del documento). Para selecciones múltiples se puede usar
+										<strong>querySelectorAll</strong> que funciona igual, pero devuelve una lista
+										con
 										todos los elementos que coincidan con el selector.
 									</div>
 									<div class="row">
@@ -1110,18 +1094,16 @@
 
 						<div class="card mb20 mt10">
 							<div class="card-body">
-								<h5 class="card-title">Creacion de elementos</h5>
+								<h5 class="card-title">Creación de elementos</h5>
 								<div class="card-text">
 									<div class="row">
 										<div class="col-md-6">
 											Con document.createElement("etiqueta") se pueden crear elementos para
-											agregarlos
-											al DOM y estos pueden ser agregados con el método appendChild del elemento
-											donde
-											se van a agregar. También pueden ser agregados pasandole el codigo html como
-											texto a la propiedad innerHTML pero este sobreescriben los que tiene el
-											elemento. A continuación se muestran algunos elementos creados desde
-											javascript.
+											agregarlos al DOM y estos pueden ser agregados con el método appendChild del
+											elemento donde se van a agregar. También pueden ser agregados pasándole el
+											código html como texto a la propiedad innerHTML pero este sobrescribe los
+											que tiene el elemento. A continuación, se muestran algunos elementos creados
+											desde javascript.
 										</div>
 										<div class="col-md-6">
 											<div class="card">
@@ -1146,12 +1128,12 @@
 									<div class="row">
 										<div class="col-md-6">
 											Document.createDocumentFragment() Crea un nuevo DocumentFragment vacío,
-											dentro del cual un nodo del DOM puede ser adicionado para construir
-											un nuevo arbol DOM fuera de pantalla, sobre este DocumentFragment se
-											realizan todas la operaciones de inserción requeridas y después se agrega
-											este al DOM lo que es una sola operación de refrescamiento de la pantalla.
-											Esto hace que si hay que hacer muchas inserciones no se satura el DOM,
-											porque cada vez que se agrega algun elemento este se renderiza.
+											dentro del cual un nodo del DOM puede ser adicionado para construir un nuevo
+											árbol DOM fuera de pantalla, sobre este DocumentFragment se realizan todas
+											las operaciones de inserción requeridas y después se agrega este al DOM lo
+											que es una sola operación de refrescamiento de la pantalla. Esto hace que,
+											si hay que hacer muchas inserciones no se satura el DOM, porque cada vez que
+											se agrega algún elemento este se renderiza.
 										</div>
 										<div class="col-md-6">
 											<div class="card">
@@ -1255,8 +1237,8 @@
 										Para validar formularios en HTML, puedes utilizar atributos de validación
 										incorporados en los elementos de entrada como: required, minlength, maxlength,
 										pattern, type, entre otros. Desde javascript se realizan las validaciones en el
-										evento onsubmit del formulario o en los enventos key de los input, en ambos
-										casos se realizan comparaciones de los valores de los inputs através de
+										evento onsubmit del formulario o en los enventos key de los inputs, en ambos
+										casos se realizan comparaciones de los valores de los inputs a través de
 										expresiones regulares (son patrones que se utilizan para hacer coincidir
 										combinaciones de caracteres en cadenas), longitud del texto y otras validaciones
 										de forma programática.
@@ -1413,7 +1395,7 @@
 								<div class="card-text mb10">
 									En este ejemplo se usan funciones callback para realizar búsquedas por id
 									dentro de los valores del json user posts. Estas respuestas tienen un
-									retraso de 2 segundos para verificar las asincronía.
+									retraso de 2 segundos para verificar la asincronía.
 								</div>
 								<button class="btn btn-primary btn-sm mb10" id="buttomCallbakFindPostById1">
 									Buscar Post por id 1
@@ -1457,7 +1439,7 @@
 									<div class="card-text mb10">
 										En este ejemplo se usan promesas para realizar búsquedas por id
 										dentro de los valores del json user posts. Estas respuestas tienen un
-										retraso de 2 segundos para verificar las asincronía.
+										retraso de 2 segundos para verificar la asincronía.
 									</div>
 									<button class="btn btn-primary btn-sm mb10" id="buttomPromesasFindPostById1">
 										Buscar Post por id 1
@@ -1494,17 +1476,17 @@
 										Las palabras clave async y await en JavaScript se utilizan para trabajar con
 										promesas de una manera más legible y secuencial. Ayudan a simplificar el código
 										asincrónico al permitirle escribir código asincrónico que parece sincrónico. Se
-										puede hacer multiples llamadas a promesas desde dentro de una funcion async
-										pero lo que esta debajo de await no se ejecuta hasta que se responde la
-										anterior y si da error salta sin ejecutar lo que sigue hasta encontrar un catch
-										o emite el error.
+										puede hacer multiples llamadas a promesas desde dentro de una función async pero
+										lo que esta debajo de await no se ejecuta hasta que se responde la anterior y si
+										da error salta sin ejecutar lo que sigue hasta encontrar un catch o emite el
+										error.
 									</div>
 
 									<h5 class="card-title mt15">Ejemplo de uso de Async Await</h5>
 									<div class="card-text mb10">
 										En este ejemplo se usan promesas através async await para realizar búsquedas por
 										id dentro de los valores del json user posts. Estas respuestas tienen un retraso
-										de 2 segundos para verificar las asincronía.
+										de 2 segundos para verificar la asincronía.
 									</div>
 									<button class="btn btn-primary btn-sm mb10" id="buttomAsyncAwaitFindPostById1">
 										Buscar Post por id 1
@@ -1660,20 +1642,20 @@
 									</div>
 									<div class="mt5">
 										Para utilizar módulos en JavaScript, hay que utilizar las sintaxis de
-										importación y exportación. Si se va a importar un modulo hay que ir al html y
-										declarar el script que contendrá la importacion como type="module" y si es *.js
-										el script q se va a importa hay que agregar la extencion o da error la
-										importacion. Para que este proceso de importación funcione correctamente se
-										requiere que la página este corriendo en un servidor porque si se habre la
-										página directamente desde el file da error de CORS (Cross-Origin Resource
-										Sharing), que se produce cuando un navegador web bloquea una solicitud que
-										proviene de un origen diferente al del sitio web actual. Cuando intentas
-										importar un módulo JavaScript utilizando la sintaxis import en un archivo HTML,
-										el navegador trata de obtener el módulo desde una URL diferente al archivo HTML
-										actual. Esto se considera una solicitud entre orígenes diferentes y desencadena
-										un error de CORS. Si el servidor no está configurado correctamente para permitir
-										solicitudes desde orígenes diferentes también se producirá pero esto no suele
-										suceder comúnmente.
+										importación y exportación. Si se va a importar un módulo hay que ir al html y
+										declarar el script que contendrá la importación como type="module" y si es *.js
+										el script q se va a importa hay que agregar la extensión o da error la
+										importación. Para que este proceso de importación funcione correctamente se
+										requiere que la página este corriendo en un servidor porque si se abre la página
+										directamente desde el file da error de CORS (Cross-Origin Resource Sharing), que
+										se produce cuando un navegador web bloquea una solicitud que proviene de un
+										origen diferente al del sitio web actual. Cuando intentas importar un módulo
+										JavaScript utilizando la sintaxis import en un archivo HTML, el navegador trata
+										de obtener el módulo desde una URL diferente al archivo HTML actual. Esto se
+										considera una solicitud entre orígenes diferentes y desencadena un error de
+										CORS. Si el servidor no está configurado correctamente para permitir solicitudes
+										desde orígenes diferentes también se producirá, pero esto no suele suceder
+										comúnmente.
 									</div>
 									<div class="mt5">
 										Por ejemplo, para exportar un arreglo llamado "frutas" (Se pueden exportar
@@ -1685,7 +1667,7 @@
 									</div>
 									<div class="mt5">
 										Y para importar el arreglo "frutas" en otro archivo, se utilizar la siguiente
-										sintaxis (como la extención del modulo1 es *.js hay que ponerlo explícitamente):
+										sintaxis (como la extensión del modulo1 es *.js hay que ponerlo explícitamente):
 									</div>
 									<div class="mt5 resaltar">
 										<div>import { frutas } from "./modules/modulo1.js";</div>
@@ -1693,8 +1675,8 @@
 									</div>
 									<div class="mt5">
 										El arreglo se puede utilizar inmediatamente después de importarlo. Se pueden
-										usar alias para el los nombres de los elementos que se van a exportar con vistas
-										a evitar colisiones de nombres de haberlas.
+										usar alias si el nombre del elemento que se va a importar ya existe en el
+										script, y así se evitan colisiones de variables.
 									</div>
 									<div class="mt5 resaltar">
 										<div>import { frutas as otroNombre} from "./modules/modulo1.js";</div>
